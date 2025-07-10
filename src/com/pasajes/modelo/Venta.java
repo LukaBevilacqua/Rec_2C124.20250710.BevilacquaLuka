@@ -49,7 +49,10 @@ public class Venta implements Serializable{
 
     public void setCantidadPasajes(double cantidadPasajes) {
         this.cantidadPasajes = cantidadPasajes;
+    }  
+    
+    @Override
+    public String toString(){
+        return "Origen: " + origen + ", Destino: " + destino + ", Cantidad pasajes: " + cantidadPasajes + ", Precio: " + precio;
     }
-    
-    
 }

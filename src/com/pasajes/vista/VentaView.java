@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  * @author lukab
  */
 public class VentaView extends VBox{
-    public VentaView(Stage stage, HashMap<String, Vendedor> vendedores) {
+    public VentaView(Stage stage, HashMap<String, Vendedor> vendedores, ArrayList<Venta> ventas) {
         setSpacing(10);
         setPadding(new javafx.geometry.Insets(20));
         
@@ -36,9 +36,7 @@ public class VentaView extends VBox{
         Button btnCargarVenta = new Button("Cargar venta");
         Button btnSalir = new Button("Salir");
         Label resultado = new Label();
-        
-        ArrayList<Venta> ventas = new ArrayList<>();
-           
+    
         btnCargarVenta.setOnAction(e -> {
             try{
                 double cantidadPasajes = Double.parseDouble(campoCantidadPasajes.getText());

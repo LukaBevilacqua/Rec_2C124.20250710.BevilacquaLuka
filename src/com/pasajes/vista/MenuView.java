@@ -5,6 +5,8 @@
 package com.pasajes.vista;
 
 import com.pasajes.modelo.Vendedor;
+import com.pasajes.modelo.Venta;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -30,13 +32,15 @@ public class MenuView extends VBox{
         
         Button btnSalir = new Button("Salir");
         
+        ArrayList<Venta> ventas = new ArrayList<>();
+        
         btnVenta.setOnAction(e -> {
-            VentaView vv = new VentaView(stage, vendedores);
+            VentaView vv = new VentaView(stage, vendedores, ventas);
             stage.setScene(new Scene(vv));
         });
         
         btnConsultaVentas.setOnAction(e -> {
-            ConsultaVentaView cvv = new ConsultaVentaView(stage, vendedores);
+            ConsultaVentaView cvv = new ConsultaVentaView(stage, vendedores, ventas);
             stage.setScene(new Scene(cvv));
         });
         
