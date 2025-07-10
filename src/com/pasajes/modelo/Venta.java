@@ -13,14 +13,14 @@ import java.io.Serializable;
 public class Venta implements Serializable{
     private String origen;
     private String destino;
-    private int cantidadPasajes;
+    private double cantidadPasajes;
     private double precio;
 
-    public Venta(String origen, String destino, int cantidadPasajes, double precio) {
+    public Venta(String origen, String destino, double cantidadPasajes) {
         this.origen = origen;
         this.destino = destino;
         this.cantidadPasajes = cantidadPasajes;
-        this.precio = precio;
+        this.precio = 200 * cantidadPasajes;
     }
 
     public double getPrecio() {
@@ -47,11 +47,7 @@ public class Venta implements Serializable{
         this.destino = destino;
     }
 
-    public int getCantidadPasajes() {
-        return cantidadPasajes;
-    }
-
-    public void setCantidadPasajes(int cantidadPasajes) {
+    public void setCantidadPasajes(double cantidadPasajes) {
         this.cantidadPasajes = cantidadPasajes;
     }
     

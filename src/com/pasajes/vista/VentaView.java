@@ -6,6 +6,7 @@ package com.pasajes.vista;
 
 import com.pasajes.modelo.Vendedor;
 import com.pasajes.modelo.Venta;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,9 +35,19 @@ public class VentaView extends VBox{
         
         Button btnCargarVenta = new Button("Cargar venta");
         Button btnSalir = new Button("Salir");
+        Label resultado = new Label();
+        
+        ArrayList<Venta> ventas = new ArrayList<>();
            
         btnCargarVenta.setOnAction(e -> {
-            
+            try{
+                double cantidadPasajes = Double.parseDouble(campoCantidadPasajes.getText());
+                Venta venta = new Venta(campoOrigen.getText(), campoDestino.getText(), cantidadPasajes);             
+                ventas.add(venta);
+                resultado.setText("Venta agregada");
+            }catch(NumberFormatException nfe){
+                resultado.setText("Ingrese un numero valido");
+            }
         });
         
         btnSalir.setOnAction(e -> {
@@ -45,7 +56,7 @@ public class VentaView extends VBox{
         });
         
         getChildren().addAll(lblOrigen, campoOrigen, lblDestino, campoDestino,
-                lblCantidadPasajes, campoCantidadPasajes, btnCargarVenta, btnSalir);
+                lblCantidadPasajes, campoCantidadPasajes, btnCargarVenta, btnSalir, resultado);
     }
     
 }

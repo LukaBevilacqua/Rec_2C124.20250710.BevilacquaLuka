@@ -31,8 +31,13 @@ public class MenuView extends VBox{
         Button btnSalir = new Button("Salir");
         
         btnVenta.setOnAction(e -> {
-            VentaView v = new VentaView(stage, vendedores);
-            stage.setScene(new Scene(v));
+            VentaView vv = new VentaView(stage, vendedores);
+            stage.setScene(new Scene(vv));
+        });
+        
+        btnConsultaVentas.setOnAction(e -> {
+            ConsultaVentaView cvv = new ConsultaVentaView(stage, vendedores);
+            stage.setScene(new Scene(cvv));
         });
         
         btnSalir.setOnAction(e -> {
@@ -40,6 +45,6 @@ public class MenuView extends VBox{
             stage.setScene(new Scene(login));
         });
         
-        getChildren().addAll(bienvenida, btnVenta, btnSalir);
+        getChildren().addAll(bienvenida, btnVenta, btnConsultaVentas, btnSalir);
     }
 }
